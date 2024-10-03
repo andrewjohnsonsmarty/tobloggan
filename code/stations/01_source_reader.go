@@ -1,6 +1,7 @@
 package stations
 
 import (
+	"fmt"
 	"io/fs"
 
 	"tobloggan/code/contracts"
@@ -20,8 +21,7 @@ func (this *SourceReader) Do(input any, output func(v any)) {
 	case contracts.SourceFilePath:
 		file, err := fs.ReadFile(this.files, string(input))
 		if err != nil {
-			//output(fmt.Errorf("error reading file: %w", err))
-			output(err)
+			output(fmt.Errorf("error reading file: %w", err))
 			return
 		}
 		output(contracts.SourceFile(file))
