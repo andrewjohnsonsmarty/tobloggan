@@ -13,6 +13,9 @@ const divider = "+++"
 
 type ArticleParser struct{}
 
+func NewArticleParser() *ArticleParser {
+	return &ArticleParser{}
+}
 func (this *ArticleParser) Do(input any, output func(any)) {
 	switch input := input.(type) {
 	case contracts.SourceFile:
