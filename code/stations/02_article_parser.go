@@ -2,6 +2,7 @@ package stations
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"strings"
 
@@ -39,4 +40,4 @@ func (this *ArticleParser) Do(input any, output func(any)) {
 	//    input: contracts.Article
 }
 
-//var errMalformedContent = errors.New("malformed content")
+var errMalformedContent = errors.New("malformed content")
